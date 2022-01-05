@@ -1,0 +1,23 @@
+{
+    "name": "waka/opentbs",
+    "description": "tentative de wrapper opentbs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Charles",
+            "email": "charlot@notilacs.fr"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0",
+        "tinybutstrong/opentbs": "^1.10",
+        "illuminate/support": "5.8.*|^6.0|^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Waka\\OpenTBS\\": "src/"
+        }
+    }
+    
+}
