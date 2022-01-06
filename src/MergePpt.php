@@ -25,16 +25,19 @@ class MergePpt
         return self::$tbs->PlugIn(OPENTBS_DEBUG_INFO ,[$Exit]);
     }
 
-    public function mergeBlocs(array $data = []) {
+
+    public function mergeField(array $data = []) {
         self::$tbs->MergeField('ds', $data);
-    }
-
-    public function setVars($data = []) {
-        $this->mergeBlocs($data);
         return $this;
-
     }
 
+    public function MergeBlock($slideNum, $key, array $data = []) {
+        self::$tbs->Plugin(OPENTBS_SELECT_SLIDE, $slideNum);
+        self::$tbs->MergeBlock($key, $data);
+        return $this;
+    }
+
+    
     public function changePicture($slideNum,$pictureRef, $pictureSrc, $_options = []) {
         $baseOptions = ['unique' => 1, 'adjust' => 'inside'];
         $options = array_merge($baseOptions, $_options);
@@ -61,9 +64,9 @@ class MergePpt
 
 
     public function savePpt($path) {
-        //Chargement des variables dans l'objet VarRef. Permet de ne pas utiliser les variables globales. 
-        self::$tbs->VarRef = $this->varRef;
-        // Define the name of the output file
+        // //Chargement des variables dans l'objet VarRef. Permet de ne pas utiliser les variables globales. 
+        // self::$tbs->VarRef = $this->varRef;
+        // // Define the name of the output file
         $output_file_name = $path;
         // Output the result as a downloadable file (only streaming, no data saved in the server)
         self::$tbs->Show(OPENTBS_FILE, $output_file_name); // Also merges all [onshow] automatic fields.
@@ -73,9 +76,9 @@ class MergePpt
     }
 
     public function downloadPpt($name) {
-        //Chargement des variables dans l'objet VarRef. Permet de ne pas utiliser les variables globales. 
-        self::$tbs->VarRef = $this->varRef;
-        // Define the name of the output file
+        // //Chargement des variables dans l'objet VarRef. Permet de ne pas utiliser les variables globales. 
+        // self::$tbs->VarRef = $this->varRef;
+        // // Define the name of the output file
         $output_file_name = $name;
         // Output the result as a downloadable file (only streaming, no data saved in the server)
         self::$tbs->Show(OPENTBS_DOWNLOAD, $output_file_name); // Also merges all [onshow] automatic fields.
