@@ -22,12 +22,19 @@ class MergePpt
     }
 
     public function degubTemplate() {
-        return self::$tbs->PlugIn(OPENTBS_DEBUG_INFO ,[$Exit]);
+        //return self::$tbs->PlugIn(OPENTBS_DEBUG_INFO ,[$Exit]);
+        //return self::$tbs->PlugIn(OPENTBS_DEBUG_XML_SHOW);
+        return self::$tbs->PlugIn(OPENTBS_DEBUG_XML_CURRENT, true);
+
     }
 
 
-    public function mergeField(array $data = []) {
-        self::$tbs->MergeField('ds', $data);
+    public function mergeField($slideNum, array $data = [], $prefix = null) {
+        self::$tbs->Plugin(OPENTBS_SELECT_SLIDE, $slideNum);
+        if(!$prefix) {
+            $prefix = 'ds';
+        }
+        self::$tbs->MergeField($prefix, $data);
         return $this;
     }
 
@@ -35,6 +42,10 @@ class MergePpt
         self::$tbs->Plugin(OPENTBS_SELECT_SLIDE, $slideNum);
         self::$tbs->MergeBlock($key, $data);
         return $this;
+    }
+
+    public function changeSlide($slideNum) {
+        self::$tbs->Plugin(OPENTBS_SELECT_SLIDE, $slideNum);
     }
 
     
