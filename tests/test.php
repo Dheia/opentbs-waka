@@ -21,6 +21,8 @@ $chartData = [
             'Cat. B' => 1.0,
             'Cat. C' => 3.2,
             'Cat. D' => 4.8,
+            'Cat. E' => 5,
+            'Cat. G' => 5,
         ],
     ],
     2 => [
@@ -30,6 +32,8 @@ $chartData = [
             'Cat. B' => 1.1,
             'Cat. C' => 3.0,
             'Cat. D' => 5,
+            'Cat. E' => 5,
+            'Cat. G' => 5,
         ],
     ],
     3 => [

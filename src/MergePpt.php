@@ -22,10 +22,7 @@ class MergePpt
     }
 
     public function degubTemplate() {
-        //return self::$tbs->PlugIn(OPENTBS_DEBUG_INFO ,[$Exit]);
-        //return self::$tbs->PlugIn(OPENTBS_DEBUG_XML_SHOW);
-        return self::$tbs->PlugIn(OPENTBS_DEBUG_XML_CURRENT, true);
-
+        return print(self::$tbs->PlugIn(OPENTBS_DEBUG_INFO, false));
     }
 
 
