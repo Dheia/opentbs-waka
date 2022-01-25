@@ -5,7 +5,7 @@ use clsTinyButStrong;
 
 class MergePpt
 {
-    public static clsTinyButStrong $tbs; 
+    public static $tbs; 
     protected $modelPath;
     private $varRef;
 
